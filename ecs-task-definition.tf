@@ -22,11 +22,11 @@ resource "aws_ecs_task_definition" "app" {
       "environment": [
         {
           "name": "ENV1",
-          "valueFrom": "${data.aws_ssm_parameter.app_env1.arn}"
+          "valueFrom": data.aws_ssm_parameter.app_env1.arn
         },
         {
           "name": "ENV2",
-          "valueFrom": "${data.aws_ssm_parameter.app_env2.arn}"
+          "valueFrom": data.aws_ssm_parameter.app_env2.arn
         }
       ]
     }
