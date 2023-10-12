@@ -38,5 +38,5 @@ output "aws_ssm_parameter_app_env1_arn" {
 }
 
 output "container_definition" {
-  value = "${aws_ecs_task_definition.app.container_definitions}"
+  value = nonsensitive(aws_ecs_task_definition.app.container_definitions)
 }
