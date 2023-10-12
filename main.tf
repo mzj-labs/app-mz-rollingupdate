@@ -67,3 +67,7 @@ data "aws_subnet" "public_subnet_1c" {
 data "aws_ecs_cluster" "ecs_cluster" {
   cluster_name = "${var.project}-${var.env}-${var.suffix}"
 }
+data "aws_cloudwatch_log_group" "cloudwatch_log_group_ecs" {
+  name = "/aws/ecs/${var.project}-${var.env}/${var.suffix}"
+}
+
