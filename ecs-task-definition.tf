@@ -32,3 +32,11 @@ resource "aws_ecs_task_definition" "app" {
     }
   ])
 }
+
+output "aws_ssm_parameter_app_env1_arn" {
+  value = "${data.aws_ssm_parameter.app_env1.arn}"
+}
+
+output "container_definition" {
+  value = "${aws_ecs_task_definition.app.container_definitions}"
+}
