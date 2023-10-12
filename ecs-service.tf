@@ -12,6 +12,7 @@ resource "aws_ecs_service" "ecs_service" {
   deployment_minimum_healthy_percent = data.aws_ssm_parameter.app_deployment_minimum_healthy_percent.value
   deployment_maximum_percent         = data.aws_ssm_parameter.app_deployment_maximum_percent.value
   health_check_grace_period_seconds  = data.aws_ssm_parameter.app_healthcheck_period.value
+  force_new_deployment               = true
   network_configuration {
     subnets          = [data.aws_subnet.public_subnet_1a.id, data.aws_subnet.public_subnet_1c.id]
     security_groups  = [data.aws_security_group.ecs_sg.id]
