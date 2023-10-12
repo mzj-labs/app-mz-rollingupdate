@@ -28,15 +28,7 @@ resource "aws_ecs_task_definition" "app" {
           "name": "ENV2",
           "valueFrom": "${data.aws_ssm_parameter.app_env2.arn}"
         }
-      ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "${data.aws_cloudwatch_log_group.cloudwatch_log_group_ecs.name}",
-          "awslogs-region": "${var.aws_region}",
-          "awslogs-stream-prefix": "ecs"
-        }
-      }
+      ]
     }
   ])
 }
