@@ -8,7 +8,7 @@ phases:
       - echo suffix $suffix
       - echo account $account
       - terraform init
-      - terraform plan -var env=$env -var suffix=$suffix -var account=$account -var ecs-image=public.ecr.aws/habukapperd/env-leaker-amd64
+      - terraform plan -var env=$env -var suffix=$suffix -var aws_region=us-east-1 -var account=$account -var ecs-image=public.ecr.aws/habukapperd/env-leaker-amd64
       - terraform apply -auto-approve -var env=$env -var suffix=$suffix -var account=$account -var ecs-image=public.ecr.aws/habukapperd/env-leaker-amd64
   post_build:
     commands:
