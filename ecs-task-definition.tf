@@ -27,14 +27,6 @@ resource "aws_ecs_task_definition" "app" {
         {
           "name": "ENV2",
           "valueFrom": data.aws_ssm_parameter.app_env2.arn
-        },
-        {
-          "name": "ENV3",
-          "valueFrom": "arn:aws:ssm:${var.aws_region}:${var.account}:parameter/${var.project}-${var.env}-${var.suffix}/env3"
-        },
-        {
-          "name": "ENV4",
-          "valueFrom": "arn:aws:ssm:us-east-1:442528770294:parameter/um/dev/app-mz-rollingupdate/env4"
         }
       ]
     }
